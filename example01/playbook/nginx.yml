@@ -1,0 +1,19 @@
+---
+- hosts: all
+  tasks:
+    - name: Install common software requirements
+      yum:
+        state: latest
+        name:
+        - amazon-linux-extras
+        - java-1.8.0-openjdk*
+      become: yes
+    - name: Install Nginx via amazon-linux-extras packages
+      shell: "amazon-linux-extras install nginx1 -y"
+      become: yes
+    - name: Enable Nginx service
+      service: name=nginx enabled=yes
+      become: yes
+    - name: Copy Nginx configuration file
+      copy: src=nginx-conf/nginx-sample.conf dest=/etc/nginx/nginx.conf owner=root group=root mode=0644
+      become: yes
