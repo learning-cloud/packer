@@ -12,7 +12,7 @@
     "instance_type": "t3.micro",
     "ssh_username": "ec2-user",
     "ami_name": "{{user `ami_name`}}",
-    "ami_description": "Ruby2.4 and Terraform0.12 with Amazon Linux2",
+    "ami_description": "Ruby2.4, Terraform0.12 and Terragruntv0.23 with Amazon Linux2",
     "tags": {
     	"Name": "{{user `ami_name`}}",
     	"BaseAMI_Id": "{{ .SourceAMI }}",
